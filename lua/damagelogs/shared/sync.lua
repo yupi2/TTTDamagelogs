@@ -48,17 +48,20 @@ if SERVER then
 		Damagelog.sync_ent:Activate()
 		Damagelog.sync_ent:SetLastRoundMapExists(Damagelog.last_round_map and true or false)
 
-		for k,v in pairs(Damagelog.Reports.Current) do
-			if v.status != RDM_MANAGER_FINISHED then
-				Damagelog.sync_ent:SetPendingReports(Damagelog.sync_ent:GetPendingReports() + 1)
+		if Damagelog.Reports and Damagelog.Reports.Current then
+			for k,v in pairs(Damagelog.Reports.Current) do
+				if v.status != RDM_MANAGER_FINISHED then
+					Damagelog.sync_ent:SetPendingReports(Damagelog.sync_ent:GetPendingReports() + 1)
+				end
 			end
 		end
 
-		for k,v in pairs(Damagelog.Reports.Previous) do
-			if v.status != RDM_MANAGER_FINISHED then
-				Damagelog.sync_ent:SetPendingReports(Damagelog.sync_ent:GetPendingReports() + 1)
-			end
-		end		
-
+		if Damagelog.Reports and Damagelog.Reports.Previous then
+			for k,v in pairs(Damagelog.Reports.Previous) do
+				if v.status != RDM_MANAGER_FINISHED then
+					Damagelog.sync_ent:SetPendingReports(Damagelog.sync_ent:GetPendingReports() + 1)
+				end
+			end		
+		end
 	end)
 end
