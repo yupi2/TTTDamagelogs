@@ -1,24 +1,40 @@
---[[ User rights.
 
-	Everyone can open the logs to view the logs of the previous rounds.
+
+--[[ User rights. 
+
+	NOTE : After the 2.0 update, everyone can open the logs to view the logs of the previous rounds.
 
 	The default level is 1 if your rank isn't here.
-
+	
 	1 and 2 : Can't view logs of the active rounds
 	3 : Can view the logs of the active rounds as a spectator
 	4 : Can always view the logs of the active ranks
-
+	
 	The third argument is the RDM Manager access. Set it to true or false.
 ]]--
 
-Damagelog:AddUser("owner", 4, true)
-Damagelog:AddUser("founder", 4, true)
-Damagelog:AddUser("superadmin", 4, true)
-Damagelog:AddUser("admin", 4, true)
-Damagelog:AddUser("operator", 3, false)
+-- Damagelog:AddUser("superadmin", 4, true)
+-- Damagelog:AddUser("admin", 4, true)
+-- Damagelog:AddUser("operator", 1, false)
+-- Damagelog:AddUser("user", 1, false)
+-- Damagelog:AddUser("guest", 1, false)
+Damagelog:AddUser("owner", 4, false)
+Damagelog:AddUser("executive", 4, false)
+Damagelog:AddUser("superadmin", 4, false)
+Damagelog:AddUser("dev", 4, false)
+Damagelog:AddUser("admin", 3, false)
+Damagelog:AddUser("purpleheart", 3, false)
+Damagelog:AddUser("mod", 3, false)
+Damagelog:AddUser("veteran", 3, false)
+Damagelog:AddUser("extravagant", 3, false)
+Damagelog:AddUser("supporter", 2, false)
+Damagelog:AddUser("donor", 2, false)
+Damagelog:AddUser("exceptional", 2, false)
+Damagelog:AddUser("0wner", 1, false)
 Damagelog:AddUser("user", 1, false)
+Damagelog:AddUser("guest", 1, false)
 
--- The F-key
+--- The F-key
 
 Damagelog.Key = KEY_F8
 
@@ -31,7 +47,7 @@ Damagelog.AbuseMessageMode = 0
 
 -- true to enable the RDM Manager, false to disable it
 
-Damagelog.RDM_Manager_Enabled = true
+Damagelog.RDM_Manager_Enabled = false
 
 -- Command to open the report menu. Don't forget the quotation marks
 
@@ -45,7 +61,7 @@ Damagelog.Respond_Command = "!respond"
 	Setting it to false will make the logs use SQLite (garrysmod/sv.db)
 ]]--
 
-Damagelog.Use_MySQL = false
+Damagelog.Use_MySQL = true
 
 --[[ Autoslay and Autojail Mode 
 REQUIRES ULX ! If you are using ServerGuard, set this to 0 (it will use ServerGuard's autoslay automatically)
@@ -57,12 +73,12 @@ REQUIRES ULX ! If you are using ServerGuard, set this to 0 (it will use ServerGu
 - 2 : Enables the autojail system instead of autoslay. Replaces the !aslay and !aslay commands by !ajail and !ajailid
 ]]--
 
-Damagelog.ULX_AutoslayMode = 1
+Damagelog.ULX_AutoslayMode = 0
 
 -- Force autoslain players to be innocents (ULX only)
 -- Do not enable this if another addon interferes with roles (Pointshop roles for example)
 
-Damagelog.ULX_Autoslay_ForceRole = true
+Damagelog.ULX_Autoslay_ForceRole = false
 
 -- Default autoslay reasons (ULX and ServerGuard)
 
@@ -100,11 +116,11 @@ Damagelog.LogDays = 61
 
 -- Hide the Donate button on the top-right corner
 
-Damagelog.HideDonateButton = false
+Damagelog.HideDonateButton = true
 
 -- Use the Workshop to download content files
 
-Damagelog.UseWorkshop = true
+Damagelog.UseWorkshop = false
 
 -- Force a language - When empty use user-defined language
 

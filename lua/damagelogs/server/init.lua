@@ -59,6 +59,7 @@ util.AddNetworkString("DL_SendDamagelog")
 util.AddNetworkString("DL_RefreshDamagelog")
 util.AddNetworkString("DL_InformSuperAdmins")
 util.AddNetworkString("DL_Ded")
+util.AddNetworkString("DL_SendLang")
 Damagelog.DamageTable = Damagelog.DamageTable or {}
 Damagelog.OldTables = Damagelog.OldTables or {}
 Damagelog.ShootTables = Damagelog.ShootTables or {}

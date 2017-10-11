@@ -385,7 +385,8 @@ net.Receive("DL_SendDamagelog", function()
 	}
 	round.roles = roles
 	for i = 1, count do
-		table.insert(round.logs, net.ReadTable())
+		local a = net.ReadTable()
+	    table.insert(round.logs, a)
 	end
 	Damagelog.RoleNicks = {}
 
