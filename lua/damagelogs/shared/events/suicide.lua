@@ -10,7 +10,8 @@ local event = {}
 event.Type = "KILL"
 
 function event:DoPlayerDeath(ply, attacker, dmginfo)
-	if IsValid(attacker) and attacker:IsPlayer() and attacker == ply and not (ply.IsGhost and ply:IsGhost()) then
+	-- added checking for falling to yoru death here i guess
+	if (IsValid(attacker) and attacker:IsPlayer() and attacker == ply) or (attacker == game.GetWorld() and dmginfo:GetDamageType() == DMG_FALL) and not (ply.IsGhost and ply:IsGhost()) then
 		Damagelog.SceneID = Damagelog.SceneID + 1
 		local scene = Damagelog.SceneID
 		Damagelog.SceneRounds[scene] = Damagelog.CurrentRound
